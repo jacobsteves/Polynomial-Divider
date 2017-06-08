@@ -4,17 +4,16 @@ A java program that calculates polynomial division synthetically.
 ## Use
 - the first time running, within this folder run:
 
-`javac SyntheticConsole.java`
-`javac SyntheticGui.java`
+     - `javac SyntheticConsole.java`
+
+     - `javac SyntheticGui.java`
 
 #### Terminal Based Use
-- in terminal, run
-
-- `java SyntheticConsole`
+- in terminal, run: `java SyntheticConsole`
 
 #### Program Based Use
 - if within terminal, run: `java SyntheticGui`
-- else, just run SyntheticGui
+- else, just run SyntheticGui.java
 
 
 ## Demo
