@@ -43,9 +43,9 @@ public class Solver {
 
     try {
       System.out.println(quotient + " | " + remainder);
-      PrintWriter out = new PrintWriter(new FileWriter(SyntheticApp.fileName + ".txt"));
+      PrintWriter out = new PrintWriter(new FileWriter(SyntheticGui.fileName + ".txt"));
       out.println("Jacob Steves - Synthetic Division Table");
-      out.println("Command: Divide " + SyntheticApp.div1 + " by: " + SyntheticApp.div2 + ".");
+      out.println("Command: Divide " + SyntheticGui.div1 + " by: " + SyntheticGui.div2 + ".");
       for(int i = 0; i < multiSide.length - 1; i++) {
         out.print(multiSide[i] + " || ");
         for(int x = 0; x < board.length; x++){
@@ -101,7 +101,7 @@ public class Solver {
       }
     }
 
-    SyntheticApp.addNewTable(returnArray);
+    SyntheticGui.addNewTable(returnArray);
     return returnArray;
 
   }
@@ -245,7 +245,7 @@ public class Solver {
       }
     }
 
-    SyntheticApp.updateTableEntries(board, sidePanel, base, 0xFFFFFFF);
+    SyntheticGui.updateTableEntries(board, sidePanel, base, 0xFFFFFFF);
     //JOptionPane.showMessageDialog (null, "Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
 
     Solver.drawBoard(board, sidePanel, base);

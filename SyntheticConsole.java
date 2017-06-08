@@ -14,11 +14,16 @@ public class SyntheticConsole {
   public SyntheticConsole() {
     try{
       in = new BufferedReader(new InputStreamReader(System.in));
-      System.out.println("\n|-------------------------------|");
-      System.out.println("Welcome to the Synthetic Division Console! This application will visually demonstrate Synthetic Division.\n\nPress any key to continue.");
+      System.out.println("\n|--------------------------------------|");
+      System.out.println("Welcome to the Synthetic Division Console!");
+      System.out.println("This application will visually demonstrate");
+      System.out.println("Synthetic Division. When entering numbers,");
+      System.out.println("please make sure to put a space between elements");
+      System.out.println("Example: '4x^2 +4x +3'\n");
+      System.out.println("Press any key to continue.");
       in.read();
       while(true) {
-        System.out.println("------ Main Menu ------");
+        System.out.println("//------// Main Menu //------//");
         System.out.println("1. Divide Polynomials Synthetically");
         System.out.println("2. Save Previous Results");
         System.out.println("3. Exit");
@@ -32,7 +37,7 @@ public class SyntheticConsole {
             outputAnswer();
           }
           else if (select == 3) {
-            System.out.println("---- Thank you for using Synthetic Division Calculator! ----");
+            System.out.println("|------ Thank you for using me! -------|");
             System.exit(0);
           }
           else {
