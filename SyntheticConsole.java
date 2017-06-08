@@ -7,11 +7,11 @@
 import java.io.*;
 import java.util.*;
 
-public class Console {
+public class SyntheticConsole {
   private BufferedReader in;
   private String polynomial, quotient;
 
-  public Console() {
+  public SyntheticConsole() {
     try{
       in = new BufferedReader(new InputStreamReader(System.in));
       System.out.println("\n|-------------------------------|");
@@ -115,6 +115,6 @@ public class Console {
   }
 
   public static void main (String [] args) {
-    new Console();
+    new SyntheticConsole();
   }
 }

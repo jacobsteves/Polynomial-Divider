@@ -149,7 +149,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
   // This method exports the data
   //
   public  void export(String rawDivisor, String rawDivident){
-    if (rawrawDividentsor.equals("") || rawDivident.equals("")){
+    if (rawDivisor.equals("") || rawDivident.equals("")){
       JOptionPane.showMessageDialog (null, "Error: You cannot leave a field blank!", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
     }
     else{
@@ -226,7 +226,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
     jMenuBar.add(file);
     jMenuBar.add(help);
 
-    jFrame.setJMenuBar(jM);
+    jFrame.setJMenuBar(jMenuBar);
 
     JButton buttonOne = new JButton("Generate Table");
     buttonOne.addActionListener(new ActionListener() {

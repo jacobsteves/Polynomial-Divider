@@ -43,7 +43,7 @@ public class Solver {
 
     try {
       System.out.println(quotient + " | " + remainder);
-      PrintWriter out = new PrintWriter(new FileWriter(SyntheticApp.name + ".txt"));
+      PrintWriter out = new PrintWriter(new FileWriter(SyntheticApp.fileName + ".txt"));
       out.println("Jacob Steves - Synthetic Division Table");
       out.println("Command: Divide " + SyntheticApp.div1 + " by: " + SyntheticApp.div2 + ".");
       for(int i = 0; i < multiSide.length - 1; i++) {
