@@ -23,5 +23,5 @@ A java program that calculates polynomial division synthetically.
 - Allows users to export results as a .txt file
 - Utilizes Ruffini's Rule
 
-## Demo
-[![https://gyazo.com/ac431f78fe1f90f8e89030df636057e8](https://i.gyazo.com/ac431f78fe1f90f8e89030df636057e8.gif)](https://gyazo.com/ac431f78fe1f90f8e89030df636057e8)
+## Terminal Based Demo
+[![https://gyazo.com/1d4f803d40ea93cafe6e6c24a9d114ae](https://i.gyazo.com/1d4f803d40ea93cafe6e6c24a9d114ae.gif)](https://gyazo.com/1d4f803d40ea93cafe6e6c24a9d114ae)
