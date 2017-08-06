@@ -188,12 +188,10 @@ public class Interface extends JPanel implements ActionListener{
 
     JMenuBar jMenuBar = new JMenuBar();
     JMenu file = new JMenu("File");
-    JMenu help = new JMenu("Help");
 
 
     JMenuItem newExportSolution = new JMenuItem("Export Solution", KeyEvent.VK_N);
     JMenuItem exit = new JMenuItem("Exit", KeyEvent.VK_X);
-    JMenuItem about = new JMenuItem("About", KeyEvent.VK_A);
     final JTextField dividendJText = new JTextField();
     final JTextField divisorJText = new JTextField();
 
@@ -202,13 +200,6 @@ public class Interface extends JPanel implements ActionListener{
       {
         // Do magic here
         export(dividendJText.getText(), divisorJText.getText());
-      }
-    });
-
-    about.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e)
-      {
-        new About();
       }
     });
 
@@ -221,10 +212,8 @@ public class Interface extends JPanel implements ActionListener{
 
     file.add(newExportSolution);
     file.add(exit);
-    help.add(about);
 
     jMenuBar.add(file);
-    jMenuBar.add(help);
 
     jFrame.setJMenuBar(jMenuBar);
 
@@ -278,7 +267,7 @@ public class Interface extends JPanel implements ActionListener{
       {
         //Execute when button is pressed
         JOptionPane.showMessageDialog (null, "Instructions: Enter the divident in the textbox, in the format as:\n"
-                                         + "x^2 +3x +4 - using spaces between the terms and no space between the positive or negative.", "Instructions", JOptionPane.WARNING_MESSAGE);
+                                         + "x^2+3x+4\n", "Instructions", JOptionPane.WARNING_MESSAGE);
 
       }
     });

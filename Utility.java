@@ -76,10 +76,12 @@ public class Utility {
   //  @return ArrayList<Term> These are the terms returned from the generatino
   //
   public static ArrayList<Term> generateTerms(String input) {
-    StringTokenizer stringToken = new StringTokenizer(input);
+    String formattedString = input.replace("+", " +").replace("-", " -").replace("*", " *").replace("/", " /");
+    String[] arrayOfTerms = formattedString.split("\\s");
+    int arrayOfTermsLen = arrayOfTerms.length;
     ArrayList<Term> returnValue = new ArrayList<Term>();
-    while(stringToken.hasMoreTokens()){
-      String temp = stringToken.nextToken();
+    for(int x = 0; x < arrayOfTermsLen; x++){
+      String temp = arrayOfTerms[x];
       String coefficientString = "";
       String exponentString = "";
       boolean isNegative = false;
