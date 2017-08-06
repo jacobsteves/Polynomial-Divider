@@ -18,8 +18,8 @@ public class Console {
       System.out.println("Welcome to the Synthetic Division Console!");
       System.out.println("This application will visually demonstrate");
       System.out.println("Synthetic Division. When entering numbers,");
-      System.out.println("please make sure to put a space between elements");
-      System.out.println("Example: '4x^2 +4x +3'\n");
+      System.out.println("enter them like the following:");
+      System.out.println("'4x^2+4x+3'\n");
       System.out.println("Press any key to continue.");
       in.read();
       while(true) {

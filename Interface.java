@@ -217,7 +217,7 @@ public class Interface extends JPanel implements ActionListener{
 
     jFrame.setJMenuBar(jMenuBar);
 
-    JButton buttonOne = new JButton("Generate Table");
+    JButton buttonOne = new JButton("Calculate");
     buttonOne.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e)
       {
@@ -251,7 +251,7 @@ public class Interface extends JPanel implements ActionListener{
         }
       }
     });
-    JButton buttonTwo = new JButton("Export Result");
+    JButton buttonTwo = new JButton("Export Solution");
 
     buttonTwo.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e)
