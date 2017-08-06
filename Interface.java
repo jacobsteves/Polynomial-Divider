@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.*;
 
 
-public class SyntheticGui extends JPanel implements ActionListener{
+public class Interface extends JPanel implements ActionListener{
 
   public static JTable table;
   static JScrollPane scrollPane;
@@ -28,7 +28,7 @@ public class SyntheticGui extends JPanel implements ActionListener{
   // This method is the main method
   //
   public static void main (String [] args){
-    new SyntheticGui();
+    new Interface();
   }
 
   //
@@ -178,7 +178,7 @@ public class SyntheticGui extends JPanel implements ActionListener{
   //
   // This method generates the constructor & JFrame
   //
-  public SyntheticGui(){
+  public Interface(){
     jFrame.setResizable(false);
     jFrame.setSize(new Dimension(640, 550));
     jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
