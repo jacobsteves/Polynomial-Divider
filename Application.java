@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 
-public class Solver {
+public class Application {
 
   public static String quotient = "";
   public static String remainder = "";
@@ -248,7 +248,7 @@ public class Solver {
     SyntheticGui.updateTableEntries(board, sidePanel, base, 0xFFFFFFF);
     //JOptionPane.showMessageDialog (null, "Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
 
-    Solver.drawBoard(board, sidePanel, base);
+    Application.drawBoard(board, sidePanel, base);
 
   }
 

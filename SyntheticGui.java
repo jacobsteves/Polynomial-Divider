@@ -171,7 +171,7 @@ public class SyntheticGui extends JPanel implements ActionListener{
       }
       fileName=   JOptionPane.showInputDialog ("Please enter your desired filename." );
 
-      Solver.solveEquation(divident, divisor, true, true);
+      Application.solveEquation(divident, divisor, true, true);
     }
   }
 
@@ -258,7 +258,7 @@ public class SyntheticGui extends JPanel implements ActionListener{
             return;
           }
 
-          Solver.solveEquation(divident, divisor, false, true);
+          Application.solveEquation(divident, divisor, false, true);
         }
       }
     });

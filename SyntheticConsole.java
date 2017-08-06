@@ -67,7 +67,7 @@ public class SyntheticConsole {
       PrintWriter out = new PrintWriter(new FileWriter(filename));
       out.println("Polynomial: " + polynomial);
       out.println("Quotient: " + quotient);
-      out.println(Solver.getSolution());
+      out.println(Application.getSolution());
       out.close();
       System.out.println("File outputted successfully.");
     }
@@ -106,9 +106,9 @@ public class SyntheticConsole {
         return;
       }
 
-      Solver.solveEquation(divident, divisor, false, false);
+      Application.solveEquation(divident, divisor, false, false);
       System.out.println("|-------------------------------|");
-      System.out.println(Solver.getSolution());
+      System.out.println(Application.getSolution());
       System.out.println("Press any key to continue.");
       in.read();
     }
