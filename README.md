@@ -4,9 +4,7 @@ A java program that calculates polynomial division synthetically.
 ## Use
 - the first time running, within this folder run:
 
-     - `javac Console.java`
-
-     - `javac Interface.java`
+     - `javac Application.java`
 
 #### Terminal Based Use
 - in terminal, run: `java Console`
@@ -23,5 +21,9 @@ A java program that calculates polynomial division synthetically.
 - Allows users to export results as a .txt file
 - Utilizes Ruffini's Rule
 
-## Terminal Based Demo
+## Demo
+#### Terminal
 [![https://gyazo.com/1d4f803d40ea93cafe6e6c24a9d114ae](https://i.gyazo.com/1d4f803d40ea93cafe6e6c24a9d114ae.gif)](https://gyazo.com/1d4f803d40ea93cafe6e6c24a9d114ae)
+
+#### GUI
+[![https://gyazo.com/865e97d715ac75c4e434817ce335c83e](https://i.gyazo.com/865e97d715ac75c4e434817ce335c83e.gif)](https://gyazo.com/865e97d715ac75c4e434817ce335c83e)
