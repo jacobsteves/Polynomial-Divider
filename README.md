@@ -1,7 +1,11 @@
-# Synthetic Division
-A java program that calculates polynomial division synthetically.
+# Polynomial Divider
+A java program that calculates polynomial division synthetically. Outputs the division to a table, making it simple to see the synthetic steps and to learn how to divide polynomials synthetically!
 
-## Use
+## Getting Started
+### Prerequisites
+To get this repository running, you need to have [Java installed](https://java.com/en/download/)
+
+### Installation
 - the first time running, within this folder run:
 
  ```
@@ -21,6 +25,9 @@ java Interface
 ```
 
 - if youre using some type of IDE, just run `Interface.java`
+
+### Building
+There are many ways to build this repo into an actual app. One way of doing this is by creating a [jar file](https://docs.oracle.com/javase/tutorial/deployment/jar/build.html) and using [Launch4J](http://launch4j.sourceforge.net/) to compile it into a .exe file.
 
 ## Features
 - Creates visual charts to map out the division
