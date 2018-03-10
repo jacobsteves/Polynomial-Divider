@@ -1,2 +1,7 @@
 *.class
 jar-file
+
+# .idea
+*.iws
+workspace.xml
+tasks.xml

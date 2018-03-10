@@ -6,6 +6,7 @@
 
 import java.io.*;
 import java.util.*;
+import src;
 
 public class Console {
   private BufferedReader in;

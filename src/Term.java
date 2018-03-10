@@ -4,6 +4,8 @@
 // Jacob Steves
 //
 
+package src;
+
 public class Term implements Comparable<Term>{
   // For an example of the following terms:
   // 3x^2 =>

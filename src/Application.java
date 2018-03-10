@@ -4,6 +4,8 @@
 // Jacob Steves
 //
 
+package src;
+
 import java.io.*;
 import java.util.*;
 import javax.swing.*;

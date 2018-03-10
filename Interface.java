@@ -9,7 +9,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.*;
-
+import src;
 
 public class Interface extends JPanel implements ActionListener{
 
