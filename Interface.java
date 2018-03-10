@@ -9,7 +9,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.*;
-import src;
+import src.*;
 
 public class Interface extends JPanel implements ActionListener{
 
@@ -54,7 +54,9 @@ public class Interface extends JPanel implements ActionListener{
   //
   // This method adds a new table
   //
-  public static void addNewTable(Object [][] arr){
+  public static void addNewTable() {
+    Object [][] arr = Application.table;
+
     if (variableExists){
       removeExist();
     }
@@ -94,7 +96,7 @@ public class Interface extends JPanel implements ActionListener{
   //
   // This method updates the table entries
   //
-  public static void updateTableEntries(double [][] initialBoard, double [] leftPane, double [][] resBoard, int focalPoint){
+  public static void updateTableEntries(double [][] initialBoard, double [] leftPane, double [][] resBoard){
     Object [] [] finalTable = new Object[2 + initialBoard.length][leftPane.length+3];
     //seperate by *
     for(int i = 1; i < leftPane.length; i++){
@@ -171,7 +173,8 @@ public class Interface extends JPanel implements ActionListener{
       }
       fileName=   JOptionPane.showInputDialog ("Please enter your desired filename." );
 
-      Application.solveEquation(divident, divisor, true, true);
+      Application.export(divident, divisor, true, true, fileName, div1, div2);
+      addNewTable();
     }
   }
 
@@ -248,6 +251,7 @@ public class Interface extends JPanel implements ActionListener{
           }
 
           Application.solveEquation(divident, divisor, false, true);
+          addNewTable();
         }
       }
     });

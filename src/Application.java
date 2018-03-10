@@ -12,14 +12,24 @@ import javax.swing.*;
 
 public class Application {
 
+  public static Object [] [] table;
+
   public static String quotient = "";
   public static String remainder = "";
   private static String solution = "";
 
+  private static String fileName = "";
+  private static String div1 = "";
+  private static String div2 = "";
+
+  private static double [] [] board;
+  private static double [] multiSide;
+  private static double [] [] res;
+
   //
   // This method outputs the board
   //
-  private static void drawBoard(double [] [] board, double [] multiSide, double [][] res) {
+  private static void drawBoard() {
     System.out.println("CONSOLE SOLUTION: ");
     for(int i = 0; i < multiSide.length - 1; i++){
       System.out.print(multiSide[i] + " || ");
@@ -38,16 +48,23 @@ public class Application {
     }
   }
 
+  public static void export(ArrayList<Term> divident, ArrayList<Term> divisor, boolean shouldPrint, boolean hasGUI, String fileName, String div1, String div2) {
+    fileName = fileName;
+    div1 = div1;
+    div2 = div2;
+    solveEquation(divident, divisor, shouldPrint, hasGUI);
+  }
+
   //
   // This method outputs the answer
   //
-  private static void printAnswer(double [] [] board, double [] multiSide, double [][] res) {
+  private static void printAnswer() {
 
     try {
       System.out.println(quotient + " | " + remainder);
-      PrintWriter out = new PrintWriter(new FileWriter(Interface.fileName + ".txt"));
+      PrintWriter out = new PrintWriter(new FileWriter(fileName + ".txt"));
       out.println("Jacob Steves - Synthetic Division Table");
-      out.println("Command: Divide " + Interface.div1 + " by: " + Interface.div2 + ".");
+      out.println("Command: Divide " + div1 + " by: " + div2 + ".");
       for(int i = 0; i < multiSide.length - 1; i++) {
         out.print(multiSide[i] + " || ");
         for(int x = 0; x < board.length; x++){
@@ -74,7 +91,7 @@ public class Application {
   //
   // This outputs the array for the table
   //
-  public static Object [] [] getTableData(double [] [] board, double [] multiSide, double [] [] res) {
+  public static Object [] [] getTableData() {
     Object [] [] returnArray = new Object[ board.length + 2][board[0].length + res[0].length +2];
     for(int i = 0; i < returnArray[0].length - 2; i++)
       returnArray[1][i] = '*';
@@ -103,7 +120,7 @@ public class Application {
       }
     }
 
-    Interface.addNewTable(returnArray);
+    table = returnArray;
     return returnArray;
 
   }
@@ -136,121 +153,6 @@ public class Application {
       System.out.print(res[i][0] + "x^" + (res.length - i - 1) );
     }
     System.out.println();
-
-  }
-
-  //
-  // This method will take an equation and then generate the table by dividing it by a quadratic
-  //
-  public static Object [] [] solveByDividingQuadratic(ArrayList<Term> divident, ArrayList<Term> divisor) {
-
-    double [] topBoard = new double [divident.size()];
-    for(int tp = 0; tp < divident.size(); tp++) {
-      topBoard[tp] = divident.get(tp).getCoefficient();
-    }
-    double [] sideBoard = new double[divisor.size() - 1];
-    for(int sB = divisor.size() - 2; sB >= 0; sB--) {
-      sideBoard[sB] = divisor.get(sB).getCoefficient() * - 1;
-    }
-
-    double [] [] resBoard = new double[divident.size()][2];
-    double [] [] work = new double[divident.size()][divisor.size() - 1];
-
-    boolean isDivisorMonic = isMonic(divisor);
-
-    for(int qq = 0; qq < divident.size(); qq++) {
-      double sum = 0;
-      sum += topBoard[qq];
-
-      for(int i = 0; i < work[qq].length; i++) {
-        sum += work[qq][i];
-      }
-      resBoard[qq][0] = sum;
-      if (isDivisorMonic) {
-        resBoard[qq][1] = sum / divisor.get(0).getCoefficient();
-        sum = resBoard[qq][1];
-      }
-      double proc = sum;
-      for(int i = qq; i < divident.size(); i++) {
-        for(int y = sideBoard.length - 1; y>= 0; y--) {
-          try{
-            work[qq][y] = proc * sideBoard[y];
-          }
-          catch(IndexOutOfBoundsException e) {
-          }
-        }
-      }
-    }
-    Object [] [] finalAns = new Object[2 + divident.size()][sideBoard.length + 3];
-    finalAns[0][0] = '*';
-    finalAns[1][0] = '*';
-    for(int i = 2; i < finalAns.length; i++) {
-      finalAns[i][0] = topBoard[i - 2];
-    }
-    for(int i = sideBoard.length; i > 0; i--) {
-      finalAns[0][i] = sideBoard[i - 1];
-    }
-    for(int i = 0; i < sideBoard.length + 1; i++)
-      finalAns[1][i] = '*';
-    for(int i = 0; i < finalAns.length; i++)
-      finalAns[i][sideBoard.length + 1] = '*';
-    for(int i = 3; i < finalAns.length; i++) {
-      for(int x = 0; x < 2; x++) {
-        finalAns[i][x] = resBoard[i - 3][x];
-      }
-    }
-
-    for(int i = 0; i < finalAns[0].length; i++) {
-      for(int x = 0; x < finalAns.length; x++) {
-        System.out.print(finalAns[x][i] + " ");
-      }
-      System.out.println();
-    }
-    return finalAns;
-  }
-
-  //
-  // This method specializes into solving quadratics quickly.
-  //
-  public static void solveByQuadratic(ArrayList<Term> divident, ArrayList <Term> divisor) {
-    System.out.println("Solving");
-
-    // Let's keep this simple. We just need an array for the board, side panel and then one for the base.
-    double [][] board = new double[divident.size()][divisor.size()];
-    for(int i = 0; i < board.length; i++) { // Load the coefficients into the table.
-      board[i][0] = divident.get(i).getCoefficient();
-    }
-    // Side panel
-    double [] sidePanel = new double[divisor.size()];
-    for(int i = divisor.size() - 1; i > 0; i--) {
-      sidePanel[i] = divisor.get(i).getCoefficient() * -1; //times -1?
-    }
-    // Now for the base
-    double [][] base = new double[divident.size()][2];
-    // Now let's go through the table
-    for(int qq = 0; qq < divident.size(); qq++) {
-      double sum = 0;
-      for(int qp = 1; qp < divisor.size(); qp++) {
-        sum += board[qq][qp];
-      }
-      base[qq][0] = sum; //time to do monmonic thing AFTER...
-
-      for(int xx = qq + 1; xx < divident.size(); xx++) {
-        for(int y = divisor.size(); y > 0; y--) {
-          try {
-            board[xx][y] = base[qq][0] * sidePanel[y];
-          }
-          catch(ArrayIndexOutOfBoundsException e){
-
-          }
-        }
-      }
-    }
-
-    Interface.updateTableEntries(board, sidePanel, base, 0xFFFFFFF);
-    //JOptionPane.showMessageDialog (null, "Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
-
-    Application.drawBoard(board, sidePanel, base);
 
   }
 
@@ -302,14 +204,17 @@ public class Application {
       }
     }
     outputPxRx(Utility.findGreatestExponent(divident), Utility.findGreatestExponent(divisor), res, hasGUI);
+
+    board = board;
+    multiSide = multiSide;
+    res = res;
+
     if (hasGUI){
-      drawBoard(board, multiSide, res);
-      getTableData(board, multiSide, res);
+      drawBoard();
+      getTableData();
     }
     if (shouldPrint)
-      printAnswer(board, multiSide, res);
-    //outputAnswer(res, divident.get(0).getPower() - divisor.get(0).getPower());
-
+      printAnswer();
   }
 
   //
