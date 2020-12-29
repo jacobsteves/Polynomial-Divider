@@ -2,6 +2,7 @@
 jar-file
 
 # .idea
+.idea/
 *.iws
 workspace.xml
 tasks.xml
